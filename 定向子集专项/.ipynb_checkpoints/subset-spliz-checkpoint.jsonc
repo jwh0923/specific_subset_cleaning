@@ -1,0 +1,30 @@
+{
+"extractor_pipe": { 
+        "enable": true,
+        "validate_input_format": false, 
+        "pre_extractor": [
+            {
+                "enable": true,
+                "python_class": "llm_web_kit.extractor.html.pre_extractor.HTMLFileFormatFilterTablePreExtractor"
+            }
+        ],
+        "extractor": [
+            {
+                "enable": true,
+                "python_class": "llm_web_kit.extractor.html.extractor.HTMLFileFormatExtractor",
+                "class_init_kwargs": {}
+            }
+        ],
+        "post_extractor": [
+            {
+                "enable": true,
+                "python_class": "llm_web_kit.extractor.html.post_extractor.HTMLStripSpacePostExtractor"
+            },
+            {
+                "enable": true,
+                "python_class": "llm_web_kit.extractor.html.post_extractor.ContentListStaticsPostExtractor"
+            }
+        ]
+    }
+}
+
